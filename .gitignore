@@ -1,6 +1,6 @@
 colopl
 a.out
 cmake-build-debug/
-idea/
+.idea/
 *.txt
 .DS_Store

@@ -1,3 +1,0 @@
-/Users/masahironishi/CLionProjects/atcoder/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/masahironishi/CLionProjects/atcoder/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/masahironishi/CLionProjects/atcoder/cmake-build-debug/CMakeFiles/atcoder.dir
