@@ -1,6 +1,3 @@
-colopl
-a.out
-cmake-build-debug/
-.idea/
-*.txt
-.DS_Store
+*
+!*/
+!*.cpp
