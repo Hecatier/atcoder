@@ -1,0 +1,5 @@
+#define : 本来はマクロを書くときに使うもの
+typedef : 違う型を別の型にするもの．
+    (使用例)typedef int 名前;
+using : typedefの進化版．templateに対しても使えるから?
+    (使用例)using 名前 = int;

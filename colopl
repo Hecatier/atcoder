@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+char *filename;
+
+int rec(int x, int y, int z){
+    FILE *fp = fopen(filename, "w");
+    fprintf(fp, "%d, %d, %d", x, y, z);
+    fclose(fp);
+
+    if(x <= y){
+        return y;
+    }else{
+        rec(rec(x-1, y, z), rec(y-1, z, x), rec(z-1, x, y));
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    if(argc > 3){
+        filename = argv[4];
+        rec(atoi(argv[0]), atoi(argv[1]), atoi(argv[2]));
+    }
+    return 0;
+}
