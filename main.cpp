@@ -13,28 +13,19 @@
 using namespace std;
 using ll = long long;
 
-int addDigit(int x){
-    string y = to_string(x);
-    int z = 0;
-    for(int i = 0; i < y.length(); i++){
-        z += y[i]-'0';
-    }
-    return z;
-}
-
 void solve(){
-    int n, a, b, res = 0;
+    ll x, y, res = 1;
+    cin >> x >> y;
 
-    cin >> n >> a >> b;
-
-    for(int i = 1; i <= n; i++){
-        int x = addDigit(i);
-        if(x >= a && x <= b){
-            res += i;
+    for(ll i = 0; i < y; i++){
+        x = x * 2;
+        if(x <= y){
+            res++;
+        }else{
+            cout << res << endl;
+            return;
         }
     }
-
-    cout << res << endl;
 }
 
 int main(){
