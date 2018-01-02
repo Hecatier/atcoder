@@ -14,18 +14,15 @@ using namespace std;
 using ll = long long;
 
 void solve(){
-    ll x, y, res = 1;
-    cin >> x >> y;
-
-    for(ll i = 0; i < y; i++){
-        x = x * 2;
-        if(x <= y){
-            res++;
-        }else{
-            cout << res << endl;
-            return;
+    string s;
+    cin >> s;
+    int res = (int)s.length();
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] != s[i+1]){
+            res = min(res, max(i+1, (int)s.length()-i-1));
         }
     }
+    cout << res << endl;
 }
 
 int main(){
