@@ -12,28 +12,35 @@
 using namespace std;
 using ll = long long;
 
-void solve(){
-    int n, k, res = 0;
-    map<int, int> m;
-    vector<int> x;
-    cin >> n >> k;
-    int a[n];
-    for(int i = 0; i < n; i++){
-        cin >> a[i];
-        if(m.find(a[i]) == m.end()){
-            m.insert(make_pair(a[i], 1));
-        }else{
-            m[a[i]]++;
+bool isPrime(int x){
+    if(x < 2){
+        return false;
+    }
+    for(int i = 2; i <= sqrt(x); i++){
+        if(x%i == 0){
+            return false;
         }
     }
-    for(auto it = m.begin(); it != m.end(); it++){
-        x.push_back(it->second);
+    return true;
+}
+
+void solve(){
+    int a[100001];
+    int q;
+    cin >> q;
+    int l[q], r[q];
+
+    for(int i = 2; i <= 100000; i++){
+        if(isPrime(i) && isPrime((i+1)/2)){
+            a[i] = a[i-1]+1;
+        }else{
+            a[i] = a[i-1];
+        }
     }
-    sort(x.begin(), x.end());
-    for(int i = 0; i < (int)m.size()-k; i++){
-        res += x[i];
+    for(int i = 0; i < q; i++){
+        cin >> l[i] >> r[i];
+        cout << a[r[i]]-a[l[i]-1] << endl;
     }
-    cout << res << endl;
 }
 
 int main(){
