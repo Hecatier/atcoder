@@ -13,23 +13,27 @@ using namespace std;
 using ll = long long;
 
 void solve(){
-    int n, res = 0;
-    cin >> n;
+    int n, k, res = 0;
+    map<int, int> m;
+    vector<int> x;
+    cin >> n >> k;
     int a[n];
     for(int i = 0; i < n; i++){
         cin >> a[i];
-    }
-    while(1){
-        for(int i = 0; i < n; i++){
-            if(a[i]%2 != 0){
-                cout << res << endl;
-                return;
-            }else{
-                a[i] = a[i]/2;
-            }
+        if(m.find(a[i]) == m.end()){
+            m.insert(make_pair(a[i], 1));
+        }else{
+            m[a[i]]++;
         }
-        res++;
     }
+    for(auto it = m.begin(); it != m.end(); it++){
+        x.push_back(it->second);
+    }
+    sort(x.begin(), x.end());
+    for(int i = 0; i < (int)m.size()-k; i++){
+        res += x[i];
+    }
+    cout << res << endl;
 }
 
 int main(){
