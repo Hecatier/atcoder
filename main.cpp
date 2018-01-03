@@ -13,15 +13,23 @@ using namespace std;
 using ll = long long;
 
 void solve(){
-    string s;
-    int res = 0;
-    cin >> s;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == '1'){
-            res++;
-        }
+    int n, res = 0;
+    cin >> n;
+    int a[n];
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
     }
-    cout << res << endl;
+    while(1){
+        for(int i = 0; i < n; i++){
+            if(a[i]%2 != 0){
+                cout << res << endl;
+                return;
+            }else{
+                a[i] = a[i]/2;
+            }
+        }
+        res++;
+    }
 }
 
 int main(){
