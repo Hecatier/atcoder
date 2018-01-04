@@ -13,9 +13,13 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    int r, g;
-    cin >> r >> g;
-    cout << 2*g-r << endl;
+    int n, k, res = 1;
+    cin >> n >> k;
+
+    for(int i = 0; i < n; i++){
+        res = min(res*2, res+k);
+    }
+    cout << res << endl;
 }
 
 int main(){
