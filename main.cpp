@@ -13,33 +13,35 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    string s, t;
-    cin >> s >> t;
-    bool F = false;
-    for(int i = s.size()-1; i >= 0; i--){
-        bool flag = true;
-        for(int j = t.size()-1; j >= 0; j--){
-            if(!(s[i+j] == t[j] || s[i+j] == '?')){
-                flag = false;
-            }
-        }
-        if(flag){
-            s.replace(i, t.size(), t);
-            F = true;
-            break;
+    int n, res = INT_MIN, c = 0, cc = 0;
+    cin >> n;
+    int f[n][10], p[n][11];
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < 10; j++){
+            cin >> f[i][j];
         }
     }
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] == '?'){
-            s.replace(i, 1, "a");
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j <= 10; j++){
+            cin >> p[i][j];
         }
     }
 
-    if(F){
-        cout << s << endl;
-    }else{
-        cout << "UNRESTORABLE" << endl;
+    for(int i = 1; i < (1<<10); i++){
+        cc = 0;
+        for(int j = 0; j < n; j++){
+            c = 0;
+            for(int k = 0; k < 10; k++){
+                if(((i>>k) & 1) && f[j][k]){ //1~1023を右シフトすると1のビットがいい感じにでてくる．それと&をとって全探索
+                    c++;    //他の店と同じ曜日がいくつあるか
+                }
+            }
+            cc += p[j][c];  //店の利益
+        }
+        res = max(res, cc);
     }
+    cout << res << endl;
 }
 
 int main(){
