@@ -14,22 +14,21 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    int n, x;
-    ll res = 0;
-    vector<int> a, b, c;
-    cin >> n;
-    REP(i, n) {cin >> x; a.push_back(x);}
-    REP(i, n) {cin >> x; b.push_back(x);}
-    REP(i, n) {cin >> x; c.push_back(x);}
-
-    sort(a.begin(), a.end());
-    sort(c.begin(), c.end());
-
-    unsigned long up, down;
-    REP(i, n){
-        up = (lower_bound(a.begin(), a.end(), b.at(i))-a.begin());
-        down = n-(upper_bound(c.begin(), c.end(), b.at(i))-c.begin());
-        res += up * down;
+    int n, h, res = 0;
+    cin >> n >> h;
+    int a[n], b[n];
+    REP(i, n) cin >> a[i] >> b[i];
+    sort(a, a+n, greater<int>());
+    sort(b, b+n, greater<int>());
+    for(int i = 0; i < n, h > 0; i++){
+        if(a[0] < b[i]){
+            h -= b[i];
+            b[i] = 0;
+            res++;
+        }else{
+            res += h/a[0];
+            h -= a[0]*(h/a[0]);
+        }
     }
     cout << res << endl;
 }
