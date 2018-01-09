@@ -13,15 +13,39 @@
 using namespace std;
 using ll = long long;
 
+int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
+int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
+
+int h, w;
+char s[55][55];
+
+int neighborSearch(int x, int y){
+    int c = 0;
+    for(int i = 0; i < 8; i++){
+        if(s[x+X[i]][y+Y[i]] == '#'){
+            c++;
+        }
+    }
+    return c;
+}
+
 void solve() {
-    int a, b, c;
-    cin >> a >> b >> c;
-    if(a == b){
-        cout << c << endl;
-    }else if(b == c){
-        cout << a << endl;
-    }else if(a == c){
-        cout << b << endl;
+    cin >> h >> w;
+    for(int i = 1; i < h+1; i++){
+        for(int j = 1; j < w+1; j++){
+            cin >> s[i][j];
+        }
+    }
+
+    for(int i = 1; i < h+1; i++){
+        for(int j = 1; j < w+1; j++){
+            if(s[i][j] == '.'){
+                cout << neighborSearch(i, j);
+            }else{
+                cout << s[i][j];
+            }
+        }
+        cout << endl;
     }
 }
 
