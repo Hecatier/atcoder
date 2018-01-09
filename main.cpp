@@ -14,23 +14,15 @@ using namespace std;
 using ll = long long;
 
 void solve() {
-    int n, h, res = 0;
-    cin >> n >> h;
-    int a[n], b[n];
-    REP(i, n) cin >> a[i] >> b[i];
-    sort(a, a+n, greater<int>());
-    sort(b, b+n, greater<int>());
-    for(int i = 0; i < n, h > 0; i++){
-        if(a[0] < b[i]){
-            h -= b[i];
-            b[i] = 0;
-            res++;
-        }else{
-            res += h/a[0];
-            h -= a[0]*(h/a[0]);
-        }
+    int a, b, c;
+    cin >> a >> b >> c;
+    if(a == b){
+        cout << c << endl;
+    }else if(b == c){
+        cout << a << endl;
+    }else if(a == c){
+        cout << b << endl;
     }
-    cout << res << endl;
 }
 
 int main(){
