@@ -17,9 +17,15 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n, a;
-    cin >> n >> a;
-    cout << pow(n,2)-a << endl;
+    int n, k, res = 0;
+    cin >> n >> k;
+    int x[n];
+    REP(i, n) cin >> x[i];
+
+    REP(i, n){
+        res += 2*min(abs(x[i]-k), x[i]);
+    }
+    cout << res << endl;
 }
 
 int main(){
