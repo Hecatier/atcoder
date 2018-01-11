@@ -17,14 +17,15 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    ll x, t;
-    cin >> x >> t;
+    string s;
+    cin >> s;
 
-    if(x - t < 0){
-        cout << 0 << endl;
-    }else{
-        cout << x-t << endl;
+    for(int i = 0; i < s.size(); i++){
+        if(i%2 == 0){
+            cout << s[i];
+        }
     }
+    cout << endl;
 }
 
 int main(){
