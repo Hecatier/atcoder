@@ -17,15 +17,16 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    string s;
-    cin >> s;
+    int n, z[100005], res = 0;
+    cin >> n;
+    int a[n];
+    REP(i, 100005) z[i] = 0;
+    REP(i, n) cin >> a[i], z[a[i]]++;
 
-    for(int i = 0; i < s.size(); i++){
-        if(i%2 == 0){
-            cout << s[i];
-        }
+    for(int i = 1; i < 100000; i++){
+        res = max(res, z[i]+z[i+1]+z[i-1]);
     }
-    cout << endl;
+    cout << res << endl;
 }
 
 int main(){
