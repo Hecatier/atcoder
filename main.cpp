@@ -17,15 +17,18 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n, z[100005], res = 0;
+    int n, res=0;
     cin >> n;
-    int a[n];
-    REP(i, 100005) z[i] = 0;
-    REP(i, n) cin >> a[i], z[a[i]]++;
+    int p[n];
+    REP(i, n) cin >> p[i];
 
-    for(int i = 1; i < 100000; i++){
-        res = max(res, z[i]+z[i+1]+z[i-1]);
+    REP(i, n){
+        if(p[i] == i+1){
+            swap(p[i], p[i+1]);
+            res++;
+        }
     }
+
     cout << res << endl;
 }
 
