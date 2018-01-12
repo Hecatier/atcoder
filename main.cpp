@@ -17,19 +17,13 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n, res=0;
-    cin >> n;
-    int p[n];
-    REP(i, n) cin >> p[i];
-
-    REP(i, n){
-        if(p[i] == i+1){
-            swap(p[i], p[i+1]);
-            res++;
-        }
+    int a, b;
+    cin >> a >> b;
+    if(a%3 == 0 || b%3 == 0 || (a+b)%3 == 0){
+        cout << "Possible" << endl;
+    }else{
+        cout << "Impossible" << endl;
     }
-
-    cout << res << endl;
 }
 
 int main(){
