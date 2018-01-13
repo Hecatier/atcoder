@@ -17,13 +17,15 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int a, b;
-    cin >> a >> b;
-    if(a%3 == 0 || b%3 == 0 || (a+b)%3 == 0){
-        cout << "Possible" << endl;
-    }else{
-        cout << "Impossible" << endl;
-    }
+    int n, k, res = 0;
+    cin >> n >> k;
+    int l[n];
+    REP(i, n) cin >> l[i];
+
+    sort(l, l+n);
+    reverse(l, l+n);
+    REP(i, k) res += l[i];
+    cout << res << endl;
 }
 
 int main(){
