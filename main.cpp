@@ -17,18 +17,16 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n;
-    cin >> n;
-    ll a[n], b[n], res = INT_MAX;
-    REP(i, n) cin >> a[i];
-    b[0] = a[0];
-    for(int i = 1; i < n; i++){
-        b[i] = a[i]+b[i-1];
+    ll q, h, s, d, n;
+    cin >> q >> h >> s >> d >> n;
+    ll x = min(q*2, h);
+    ll y = min(x*2, s);
+    if(y*2 <= d){
+        cout << y*n << endl;
+    }else{
+        unsigned long long res = ((n/2)*d)+(n%2)*y;
+        cout << res << endl;
     }
-    REP(i, n-1){
-        res = min(res, abs(b[n-1]-b[i]*2));
-    }
-    cout << res << endl;
 }
 
 int main(){
