@@ -17,17 +17,18 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n, l;
-    vector<string> s;
-    cin >> n >> l;
-    string tmp;
-    REP(i, n) cin >> tmp, s.push_back(tmp);
-    sort(s.begin(), s.end());
+  string s;
+    cin >> s;
  
-    for(auto i = s.begin(); i != s.end(); i++){
-        cout << *i;
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 4; j++){
+            if(s[i] != s[j]){
+                cout << "DIFFERENT" << endl;
+                return;
+            }
+        }
     }
-    cout << endl;
+    cout << "SAME" << endl;
 }
 
 int main(){
