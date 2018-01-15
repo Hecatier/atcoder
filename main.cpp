@@ -17,21 +17,18 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    ll min = 2, max = 2;
-    int k;
-    cin >> k;
-    ll a[k];
-    REP(i, k) cin >> a[i];
-
-    for(int i = k-1; i >= 0; i--){
-        min = ((min+a[i]-1)/a[i])*a[i];
-        max = (max/a[i])*a[i] + (a[i]-1);
-        if(min > max){
-            cout << "-1" << endl;
-            return;
+    int k, s, res = 0;
+    cin >> k >> s;
+    for(int i = 0; i <= k; i++){
+        for(int j = 0; j <= k; j++){
+            int x = s-(i+j);
+            //printf("%d %d %d\n",i, j, x);
+            if(x >= 0 && x <= k){
+                res++;
+            }
         }
     }
-    cout << min << " " << max << endl;
+    cout << res << endl;
 }
 
 int main(){
