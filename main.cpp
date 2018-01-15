@@ -17,18 +17,22 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int k, s, res = 0;
-    cin >> k >> s;
-    for(int i = 0; i <= k; i++){
-        for(int j = 0; j <= k; j++){
-            int x = s-(i+j);
-            //printf("%d %d %d\n",i, j, x);
-            if(x >= 0 && x <= k){
-                res++;
+    string s;
+    cin >> s;
+    for(int i = s.size()-1; i > 0; i--){
+        if(s.size()%2 == 0){
+            bool f = true;
+            for(int j = 0; j < i/2; j++){
+                if(s[j] != s[j+(i/2)]){
+                    f = false;
+                }
+            }
+            if(f){
+                cout << i-1 << endl;
+                return;
             }
         }
     }
-    cout << res << endl;
 }
 
 int main(){
