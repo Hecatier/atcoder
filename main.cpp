@@ -17,22 +17,17 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    string s;
-    cin >> s;
-    for(int i = s.size()-1; i > 0; i--){
-        if(s.size()%2 == 0){
-            bool f = true;
-            for(int j = 0; j < i/2; j++){
-                if(s[j] != s[j+(i/2)]){
-                    f = false;
-                }
-            }
-            if(f){
-                cout << i-1 << endl;
-                return;
-            }
-        }
+    int n, l;
+    vector<string> s;
+    cin >> n >> l;
+    string tmp;
+    REP(i, n) cin >> tmp, s.push_back(tmp);
+    sort(s.begin(), s.end());
+ 
+    for(auto i = s.begin(); i != s.end(); i++){
+        cout << *i;
     }
+    cout << endl;
 }
 
 int main(){
