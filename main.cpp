@@ -17,18 +17,19 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-  string s;
-    cin >> s;
- 
-    for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; j++){
-            if(s[i] != s[j]){
-                cout << "DIFFERENT" << endl;
-                return;
-            }
-        }
+    int n;
+    vector<pair<int, string> > v;
+    int t1, sum = 0;
+    string t2;
+    cin >> n;
+    REP(i, n) cin >> t2 >> t1, v.push_back(make_pair(t1, t2)), sum+=t1;
+    sort(v.begin(), v.end());
+    reverse(v.begin(), v.end());
+    if(v[0].first > sum/2){
+        cout << v[0].second << endl;
+    }else{
+        cout << "atcoder" << endl;
     }
-    cout << "SAME" << endl;
 }
 
 int main(){
