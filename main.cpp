@@ -17,18 +17,15 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n;
-    vector<pair<int, string> > v;
-    int t1, sum = 0;
-    string t2;
-    cin >> n;
-    REP(i, n) cin >> t2 >> t1, v.push_back(make_pair(t1, t2)), sum+=t1;
-    sort(v.begin(), v.end());
-    reverse(v.begin(), v.end());
-    if(v[0].first > sum/2){
-        cout << v[0].second << endl;
-    }else{
-        cout << "atcoder" << endl;
+    int a, b, n;
+    cin >> a >> b >> n;
+
+    for(int i = 1; i <= INT_MAX; i++){
+        int t = a*i;
+        if(t%a == 0 && t%b == 0 && t >= a && t >= b && t >= n){
+            cout << t << endl;
+            return;
+        }
     }
 }
 
