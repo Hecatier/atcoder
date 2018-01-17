@@ -16,16 +16,41 @@ using ll = long long;
 int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
-void solve() {
-    int a, b, n;
-    cin >> a >> b >> n;
+int gcd(int a, int b) {
+    int x = max(a, b);
+    int y = min(a, b);
+    int z = x % y;
+    if(z == 0){
+        return y;
+    }else{
+        return gcd(y, z);
+    }
+}
 
-    for(int i = 1; i <= INT_MAX; i++){
-        int t = a*i;
-        if(t%a == 0 && t%b == 0 && t >= a && t >= b && t >= n){
-            cout << t << endl;
-            return;
+int lcm(int a, int b) {
+    return (a*b)/gcd(a, b);
+}
+
+void solve() {
+    int n;
+    double R = 0.0, W = 0.0;
+    cin >> n;
+    int r[n];
+    REP(i, n) cin >> r[i];
+
+    sort(r, r+n);
+
+    for(int i = n-1; i >= 0; i--){
+        if(i%2==0){
+            W += r[i] * r[i];
+        }else{
+            R += r[i] * r[i];
         }
+    }
+    if(n%2==0){
+        printf("%08lf\n", (R-W)*M_PI);
+    }else{
+        printf("%08lf\n", (W-R)*M_PI);
     }
 }
 
