@@ -33,23 +33,33 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    set<string> ss;
+    int n;
     string s;
-    int k;
-    cin >> s >> k;
+    cin >> n >> s;
 
-    if(s.size() < k){
-        cout << 0 << endl;
-        return;
-    }
-    for(int i = 0; i < s.size(); i++){
-        string x = s.substr(i, k);
-        if(x.size() == k){
-            ss.insert(x);
+    string tmp = "b";
+    for(int i = 0; i <= n; i++){
+        if(i == 0){
+            ;
+        }else if(i%3 == 1){
+            tmp.insert(tmp.begin(), 'a');
+            tmp.insert(tmp.end(), 'c');
+        }else if(i%3 == 2){
+            tmp.insert(tmp.begin(), 'c');
+            tmp.insert(tmp.end(), 'a');
+        }else if(i%3 == 0){
+            tmp.insert(tmp.begin(), 'b');
+            tmp.insert(tmp.end(), 'b');
+        }
+        if(tmp == s){
+            cout << i << endl;
+            return;
+        }
+        if(tmp.size() > n){
+            cout << -1 << endl;
+            return;
         }
     }
-
-    cout << ss.size() << endl;
 }
 
 int main(){
