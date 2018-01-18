@@ -6,6 +6,7 @@
 #include <cmath>
 #include <random>
 #include <climits>
+#include <set>
 
 #define mod 1000000007
 #define REP(i,n) for(int (i)=0; (i)<(n); (i)++)
@@ -32,26 +33,23 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int n;
-    double R = 0.0, W = 0.0;
-    cin >> n;
-    int r[n];
-    REP(i, n) cin >> r[i];
+    set<string> ss;
+    string s;
+    int k;
+    cin >> s >> k;
 
-    sort(r, r+n);
-
-    for(int i = n-1; i >= 0; i--){
-        if(i%2==0){
-            W += r[i] * r[i];
-        }else{
-            R += r[i] * r[i];
+    if(s.size() < k){
+        cout << 0 << endl;
+        return;
+    }
+    for(int i = 0; i < s.size(); i++){
+        string x = s.substr(i, k);
+        if(x.size() == k){
+            ss.insert(x);
         }
     }
-    if(n%2==0){
-        printf("%08lf\n", (R-W)*M_PI);
-    }else{
-        printf("%08lf\n", (W-R)*M_PI);
-    }
+
+    cout << ss.size() << endl;
 }
 
 int main(){
