@@ -33,23 +33,20 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int n, sum=0, res=0;
+    int n, res=0;
+    set<int> ss;
     cin >> n;
     int a[n];
-    REP(i, n) cin >> a[i], sum+=a[i];
-    if(sum%n == 0){
-        int ave = sum/n;
-        int tmp = 0;
-        for(int i = 0; i < n-1; i++){
-            tmp += a[i];
-            if(tmp != (i+1)*ave){
-                res++;
-            }
+    REP(i, n) cin >> a[i];
+
+    for(int i = 0; i < n; i++){
+        if(ss.find(a[i]) == ss.end()){
+            ss.insert(a[i]);
+        }else{
+            res++;
         }
-        cout << res << endl;
-    }else{
-        cout << -1 << endl;
     }
+    cout << res << endl;
 }
 
 int main(){
