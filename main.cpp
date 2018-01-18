@@ -33,32 +33,22 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int n;
-    string s;
-    cin >> n >> s;
-
-    string tmp = "b";
-    for(int i = 0; i <= n; i++){
-        if(i == 0){
-            ;
-        }else if(i%3 == 1){
-            tmp.insert(tmp.begin(), 'a');
-            tmp.insert(tmp.end(), 'c');
-        }else if(i%3 == 2){
-            tmp.insert(tmp.begin(), 'c');
-            tmp.insert(tmp.end(), 'a');
-        }else if(i%3 == 0){
-            tmp.insert(tmp.begin(), 'b');
-            tmp.insert(tmp.end(), 'b');
+    int n, sum=0, res=0;
+    cin >> n;
+    int a[n];
+    REP(i, n) cin >> a[i], sum+=a[i];
+    if(sum%n == 0){
+        int ave = sum/n;
+        int tmp = 0;
+        for(int i = 0; i < n-1; i++){
+            tmp += a[i];
+            if(tmp != (i+1)*ave){
+                res++;
+            }
         }
-        if(tmp == s){
-            cout << i << endl;
-            return;
-        }
-        if(tmp.size() > n){
-            cout << -1 << endl;
-            return;
-        }
+        cout << res << endl;
+    }else{
+        cout << -1 << endl;
     }
 }
 
