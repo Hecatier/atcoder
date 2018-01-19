@@ -33,20 +33,26 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int n, res=0;
-    set<int> ss;
+    int n;
     cin >> n;
-    int a[n];
+    ll a[n];
+    vector<ll> b;
     REP(i, n) cin >> a[i];
 
-    for(int i = 0; i < n; i++){
-        if(ss.find(a[i]) == ss.end()){
-            ss.insert(a[i]);
-        }else{
-            res++;
+    for(int i = n-1; i >= 0; i-=2){
+        if(i >= 0 && i < n){
+            b.push_back(a[i]);
         }
     }
-    cout << res << endl;
+    for(int i = n%2; i < n; i+=2){
+        if(i >= 0 && i < n){
+            b.push_back(a[i]);
+        }
+    }
+    for(auto i = b.begin(); i != b.end(); i++){
+        cout << *i << " ";
+    }
+    cout << endl;
 }
 
 int main(){
