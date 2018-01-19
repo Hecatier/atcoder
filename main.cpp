@@ -7,6 +7,7 @@
 #include <random>
 #include <climits>
 #include <set>
+#include <deque>
 
 #define mod 1000000007
 #define REP(i,n) for(int (i)=0; (i)<(n); (i)++)
@@ -33,23 +34,21 @@ int lcm(int a, int b) {
 }
 
 void solve() {
+    deque<ll> deq;
     int n;
     cin >> n;
     ll a[n];
-    vector<ll> b;
     REP(i, n) cin >> a[i];
 
-    for(int i = n-1; i >= 0; i-=2){
-        if(i >= 0 && i < n){
-            b.push_back(a[i]);
+    REP(i, n){
+        if((i+1)%2 == n%2){
+            deq.push_front(a[i]);
+        }else{
+            deq.push_back(a[i]);
         }
     }
-    for(int i = n%2; i < n; i+=2){
-        if(i >= 0 && i < n){
-            b.push_back(a[i]);
-        }
-    }
-    for(auto i = b.begin(); i != b.end(); i++){
+
+    for(auto i = deq.begin(); i != deq.end(); i++){
         cout << *i << " ";
     }
     cout << endl;
