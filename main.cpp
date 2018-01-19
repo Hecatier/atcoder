@@ -34,24 +34,23 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    deque<ll> deq;
-    int n;
+    int n, x, sum=0;
+    vector<int> s;
     cin >> n;
-    ll a[n];
-    REP(i, n) cin >> a[i];
+    REP(i, n) cin >> x, s.push_back(x), sum+=x; 
 
-    REP(i, n){
-        if((i+1)%2 == n%2){
-            deq.push_front(a[i]);
-        }else{
-            deq.push_back(a[i]);
+    sort(s.begin(), s.end());
+
+    for(auto i = s.begin(); i != s.end(); i++){
+        if(sum%10 != 0){
+            cout << sum << endl;
+            return;
+        }
+        if(*i%10 != 0){
+            sum -= *i;
         }
     }
-
-    for(auto i = deq.begin(); i != deq.end(); i++){
-        cout << *i << " ";
-    }
-    cout << endl;
+    cout << 0 << endl;
 }
 
 int main(){
