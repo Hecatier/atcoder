@@ -11,6 +11,7 @@
 
 #define mod 1000000007
 #define REP(i,n) for(int (i)=0; (i)<(n); (i)++)
+#define FOREACH(i, v) for(auto i = v.begin(); i != v.end(); i++)
 
 using namespace std;
 using ll = long long;
@@ -34,23 +35,19 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int n, x, sum=0;
-    vector<int> s;
-    cin >> n;
-    REP(i, n) cin >> x, s.push_back(x), sum+=x; 
-
-    sort(s.begin(), s.end());
-
-    for(auto i = s.begin(); i != s.end(); i++){
-        if(sum%10 != 0){
-            cout << sum << endl;
+    ll x, y;
+    vector<pair<ll, ll> > v;
+    ll n, k;
+    cin >> n >> k;
+    REP(i, n) cin >> x >> y, v.push_back(make_pair(x, y));     
+    sort(v.begin(), v.end());
+    REP(i, n){
+        k -=v[i].second;
+        if(k <= 0){
+            cout << v[i].first << endl;
             return;
         }
-        if(*i%10 != 0){
-            sum -= *i;
-        }
     }
-    cout << 0 << endl;
 }
 
 int main(){
