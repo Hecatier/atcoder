@@ -35,19 +35,9 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    ll x, y;
-    vector<pair<ll, ll> > v;
-    ll n, k;
-    cin >> n >> k;
-    REP(i, n) cin >> x >> y, v.push_back(make_pair(x, y));     
-    sort(v.begin(), v.end());
-    REP(i, n){
-        k -=v[i].second;
-        if(k <= 0){
-            cout << v[i].first << endl;
-            return;
-        }
-    }
+    int a, b, c, d, e;
+    cin >> a >> b >> c >> d >> e;
+    cout << max(a+d+e, b+c+e) << endl;
 }
 
 int main(){
