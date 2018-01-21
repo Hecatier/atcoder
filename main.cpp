@@ -35,9 +35,20 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int a, b, c, d, e;
-    cin >> a >> b >> c >> d >> e;
-    cout << max(a+d+e, b+c+e) << endl;
+    string s;
+    int x[10];
+    cin >> s;
+    REP(i, 10) x[i] = 0;
+    for(int i = 0; i < s.size(); i++){
+        x[s[i]-'A']++;
+    }
+    for(int i = 0; i < 6; i++){
+        cout << x[i];
+        if(i != 5){
+            cout << " ";
+        }
+    }
+    cout << endl;
 }
 
 int main(){
