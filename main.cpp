@@ -35,25 +35,15 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int n, k;
-    cin >> n >> k;
-    ll x[n], y[n], res=0;
-    char c[n];
-    REP(i, n) cin >> x[i] >> y[i] >> c[i];
-
-    for(int i = 0; i < k; i++){
-        ll temp = 0;
-        for(int j = 0; j < n; j++){
-            ll xx = (k+i);
-            if((x[j] >= xx*(x[j]/k) && x[j] <= xx*(x[j]/k)+xx) && (y[j] >= k*(y[j]/k) && y[j] <= k*(y[j]/k)+k) && c[j] == 'W'){
-                temp++;
-            }else if(!(x[j] >= xx*(x[j]/k) && x[j] <= xx*(x[j]/k)+xx && y[j] >= k*(y[j]/k) && y[j] <= k*(y[j]/k)+k) && c[j] == 'B'){
-                temp++;
-            }
-        }
-        res = max(res, temp);
+    string a, b;
+    cin >> a >> b;
+    a += b;
+    int x = atoi(a.c_str());
+    if(sqrt(x) != floor(sqrt(x))){
+        cout << "No" << endl;
+    }else{
+        cout << "Yes" << endl;
     }
-    cout << res << endl;
 }
 
 int main(){
