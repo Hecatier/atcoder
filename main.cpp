@@ -35,23 +35,25 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int n;
-    cin >> n;
-    int t[n], x[n], y[n];
-    REP(i, n) cin >> t[i] >> x[i] >> y[i];
+    int n, k;
+    cin >> n >> k;
+    ll x[n], y[n], res=0;
+    char c[n];
+    REP(i, n) cin >> x[i] >> y[i] >> c[i];
 
-    int temp = 0, p = 0;
-    REP(i, n){
-        temp = t[i] - temp;
-        if(abs(x[i]+y[i]-p) <= temp && temp%2 == abs(x[i]+y[i]-p)%2){
-            temp = t[i];
-            p = x[i]+y[i];
-        }else{
-            cout << "No" << endl;
-            return;
+    for(int i = 0; i < k; i++){
+        ll temp = 0;
+        for(int j = 0; j < n; j++){
+            ll xx = (k+i);
+            if((x[j] >= xx*(x[j]/k) && x[j] <= xx*(x[j]/k)+xx) && (y[j] >= k*(y[j]/k) && y[j] <= k*(y[j]/k)+k) && c[j] == 'W'){
+                temp++;
+            }else if(!(x[j] >= xx*(x[j]/k) && x[j] <= xx*(x[j]/k)+xx && y[j] >= k*(y[j]/k) && y[j] <= k*(y[j]/k)+k) && c[j] == 'B'){
+                temp++;
+            }
         }
+        res = max(res, temp);
     }
-    cout << "Yes" << endl;
+    cout << res << endl;
 }
 
 int main(){
