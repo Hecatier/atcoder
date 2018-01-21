@@ -35,21 +35,29 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int l, h;
-    cin >> l >> h;
-    int n;
-    cin >> n;
-    int a[n];
+    int a[200005];
+    REP(i, 200005) a[i] = 0;
+    int n, q;
+    cin >> n >> q;
+    REP(i, q){
+        int x, y;
+        cin >> x >> y;
+        a[x-1]++;
+        a[y]--;
+    }
+
     REP(i, n){
-        cin >> a[i];
-        if(a[i] >= l && a[i] <= h){
-            cout << 0 << endl;
-        }else if(a[i] < l){
-            cout << l-a[i] << endl;
-        }else if(a[i] > l){
-            cout << -1 << endl;
+        a[i+1] += a[i];
+    }
+    
+    REP(i, n){
+        if(a[i]%2 == 0){
+            cout << 0;
+        }else{
+            cout << 1;
         }
     }
+    cout << endl;
 }
 
 int main(){
