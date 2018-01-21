@@ -35,9 +35,21 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int a, d;
-    cin >> a >> d;
-    cout << max((a+1)*d, a*(d+1)) << endl;
+    int l, h;
+    cin >> l >> h;
+    int n;
+    cin >> n;
+    int a[n];
+    REP(i, n){
+        cin >> a[i];
+        if(a[i] >= l && a[i] <= h){
+            cout << 0 << endl;
+        }else if(a[i] < l){
+            cout << l-a[i] << endl;
+        }else if(a[i] > l){
+            cout << -1 << endl;
+        }
+    }
 }
 
 int main(){
