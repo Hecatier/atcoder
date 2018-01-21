@@ -35,14 +35,12 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    string a, b;
+   int a, b;
     cin >> a >> b;
-    a += b;
-    int x = atoi(a.c_str());
-    if(sqrt(x) != floor(sqrt(x))){
-        cout << "No" << endl;
+    if((a*b)%2 == 0){
+        cout << "Even" << endl;
     }else{
-        cout << "Yes" << endl;
+        cout << "Odd" << endl;
     }
 }
 
