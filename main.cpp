@@ -37,15 +37,21 @@ int lcm(int a, int b) {
 void solve() {
     int n;
     cin >> n;
-    if(n == 100){
-        cout << "Perfect" << endl;
-    }else if(n >= 90 && n < 100){
-        cout << "Great" << endl;
-    }else if(n >= 60 && n < 90){
-        cout << "Good" << endl;
-    }else{
-        cout << "Bad" << endl;
+    int t[n], x[n], y[n];
+    REP(i, n) cin >> t[i] >> x[i] >> y[i];
+
+    int temp = 0, p = 0;
+    REP(i, n){
+        temp = t[i] - temp;
+        if(abs(x[i]+y[i]-p) <= temp && temp%2 == abs(x[i]+y[i]-p)%2){
+            temp = t[i];
+            p = x[i]+y[i];
+        }else{
+            cout << "No" << endl;
+            return;
+        }
     }
+    cout << "Yes" << endl;
 }
 
 int main(){
