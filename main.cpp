@@ -35,20 +35,17 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    string s;
-    int x[10];
-    cin >> s;
-    REP(i, 10) x[i] = 0;
-    for(int i = 0; i < s.size(); i++){
-        x[s[i]-'A']++;
+    int n;
+    cin >> n;
+    if(n == 100){
+        cout << "Perfect" << endl;
+    }else if(n >= 90 && n < 100){
+        cout << "Great" << endl;
+    }else if(n >= 60 && n < 90){
+        cout << "Good" << endl;
+    }else{
+        cout << "Bad" << endl;
     }
-    for(int i = 0; i < 6; i++){
-        cout << x[i];
-        if(i != 5){
-            cout << " ";
-        }
-    }
-    cout << endl;
 }
 
 int main(){
