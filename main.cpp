@@ -35,27 +35,14 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    int a[200005];
-    REP(i, 200005) a[i] = 0;
-    int n, q;
-    cin >> n >> q;
-    REP(i, q){
-        int x, y;
-        cin >> x >> y;
-        a[x-1]++;
-        a[y]--;
-    }
-
-    REP(i, n){
-        a[i+1] += a[i];
-    }
-    
-    REP(i, n){
-        if(a[i]%2 == 0){
-            cout << 0;
-        }else{
-            cout << 1;
-        }
+    double a, b, c, d;
+    cin >> a >> b >> c >> d;
+    if(b/a > d/c){
+        cout << "TAKAHASHI";
+    }else if(b/a < d/c){
+        cout << "AOKI";
+    }else{
+        cout << "DRAW";
     }
     cout << endl;
 }
