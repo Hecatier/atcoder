@@ -35,20 +35,12 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    double n, m, res;
-    cin >> n >> m; 
-    if(n >= 12){
-        n = n-12;
+    double s[3], e[3], res=0.0;
+    for(int i = 0; i < 3; i++){
+        cin >> s[i] >> e[i];
+        res += s[i]*e[i]/10;
     }
-    double m_angle = n*30+m*0.5;
-    double s_angle = 6*m;
-    res = max(m_angle - s_angle, s_angle - m_angle);
-
-    if(res > 180){
-        cout << 360-res << endl;
-    }else{
-        cout << res << endl;
-    }
+    cout << res << endl;
 }
 
 int main(){
