@@ -35,16 +35,20 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    double a, b, c, d;
-    cin >> a >> b >> c >> d;
-    if(b/a > d/c){
-        cout << "TAKAHASHI";
-    }else if(b/a < d/c){
-        cout << "AOKI";
-    }else{
-        cout << "DRAW";
+    double n, m, res;
+    cin >> n >> m; 
+    if(n >= 12){
+        n = n-12;
     }
-    cout << endl;
+    double m_angle = n*30+m*0.5;
+    double s_angle = 6*m;
+    res = max(m_angle - s_angle, s_angle - m_angle);
+
+    if(res > 180){
+        cout << 360-res << endl;
+    }else{
+        cout << res << endl;
+    }
 }
 
 int main(){
