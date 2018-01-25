@@ -35,12 +35,21 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    double s[3], e[3], res=0.0;
-    for(int i = 0; i < 3; i++){
-        cin >> s[i] >> e[i];
-        res += s[i]*e[i]/10;
+    string s;
+    cin >> s;
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == 'c' && s[i+1] == 'h'){
+			i++;
+        }else if(s[i] == 'o'){
+        }else if(s[i] == 'k'){
+        }else if(s[i] == 'u'){
+		}else{
+			cout << "NO" << endl;
+			return;
+		}
     }
-    cout << res << endl;
+    cout << "YES" << endl;
+    return;
 }
 
 int main(){
