@@ -35,21 +35,20 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-    string s;
-    cin >> s;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == 'c' && s[i+1] == 'h'){
-			i++;
-        }else if(s[i] == 'o'){
-        }else if(s[i] == 'k'){
-        }else if(s[i] == 'u'){
-		}else{
-			cout << "NO" << endl;
-			return;
-		}
-    }
-    cout << "YES" << endl;
-    return;
+	ll n;
+	map<ll, ll> m;
+ 	cin >> n;
+	ll a[n];
+	REP(i, n) cin >> a[i], m[a[i]] = 0;
+
+	ll y = 0;
+	for(auto i = m.begin(); i != m.end(); i++){
+		m[i->first]=y++;
+	}
+
+	REP(i, n){
+		cout << m[a[i]] << endl;
+	}
 }
 
 int main(){
