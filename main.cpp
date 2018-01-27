@@ -35,20 +35,9 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-	ll n;
-	map<ll, ll> m;
- 	cin >> n;
-	ll a[n];
-	REP(i, n) cin >> a[i], m[a[i]] = 0;
-
-	ll y = 0;
-	for(auto i = m.begin(); i != m.end(); i++){
-		m[i->first]=y++;
-	}
-
-	REP(i, n){
-		cout << m[a[i]] << endl;
-	}
+	int m, d;
+	cin >> m >> d;
+	m%d == 0 ? cout << "YES" << endl : cout << "NO" << endl;
 }
 
 int main(){
