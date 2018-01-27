@@ -35,9 +35,17 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-	int m, d;
-	cin >> m >> d;
-	m%d == 0 ? cout << "YES" << endl : cout << "NO" << endl;
+	int a, b, c;
+	cin >> a >> b >> c;
+	if(a-b == c && a+b == c){
+		cout << "?" << endl;
+	}else if(a+b == c){
+		cout << "+" << endl;
+	}else if(a-b == c){
+		cout << "-" << endl;
+	}else{
+		cout << "!" << endl;
+	}
 }
 
 int main(){
