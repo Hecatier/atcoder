@@ -35,13 +35,17 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-	string a, b;
-	cin >> a >> b;
-	if(a.length() > b.length()){
-		cout << a << endl;
-	}else{
-		cout << b << endl;
-	}
+	int n, res = 0, c = 0;
+	cin >> n;
+	int a[n];
+	REP(i, n){
+		cin >> a[i];
+		res += a[i];
+		if(a[i] > 0){
+			c++;
+		}
+	} 
+	cout << ceil((double)res/c) << endl;
 }
 
 int main(){
