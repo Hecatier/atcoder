@@ -35,16 +35,12 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-	int a, b, c;
-	cin >> a >> b >> c;
-	if(a-b == c && a+b == c){
-		cout << "?" << endl;
-	}else if(a+b == c){
-		cout << "+" << endl;
-	}else if(a-b == c){
-		cout << "-" << endl;
+	string a, b;
+	cin >> a >> b;
+	if(a.length() > b.length()){
+		cout << a << endl;
 	}else{
-		cout << "!" << endl;
+		cout << b << endl;
 	}
 }
 
