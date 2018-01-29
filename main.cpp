@@ -8,6 +8,7 @@
 #include <climits>
 #include <set>
 #include <deque>
+#include <bitset>
 //#include "mylib.h"
 
 #define mod 1000000007
@@ -21,14 +22,13 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-	int a, b;
-	cin >> a >> b;
-	int c = a%b;
-	if(c != 0){
-		cout << b-c << endl;
-	}else{
-		cout << 0 << endl;
-	}
+	ll n, x, res = 0;
+	cin >> n >> x;
+	int a[n];
+	REP(i, n) cin >> a[i];
+	bitset<20> bs(x);
+	REP(i, 20) if(bs[i] == 1) res += a[i];
+	cout << res << endl;
 }
 
 int main(){
