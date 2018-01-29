@@ -35,13 +35,19 @@ int lcm(int a, int b) {
 }
 
 void solve() {
-	int x, a, b;
-	cin >> x >> a >> b;
-	x = x - a;
-	while(x >= b){
-		x = x - b;
+	int a, b, c, x;
+	int res = 0;
+	cin >> a >> b >> c >> x;
+	for(int i = 0; i <= a; i++){
+		for(int j = 0; j <= b; j++){
+			for(int k = 0; k <= c; k++){
+				if(500*i+100*j+50*k == x){
+					res++;
+				}
+			}
+		}
 	}
-	cout << x << endl;
+	cout << res << endl;
 }
 
 int main(){
