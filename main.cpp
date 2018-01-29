@@ -34,20 +34,36 @@ int lcm(int a, int b) {
     return (a*b)/gcd(a, b);
 }
 
+ll memo[2][105];
+
 void solve() {
-	int a, b, c, x;
-	int res = 0;
-	cin >> a >> b >> c >> x;
-	for(int i = 0; i <= a; i++){
-		for(int j = 0; j <= b; j++){
-			for(int k = 0; k <= c; k++){
-				if(500*i+100*j+50*k == x){
-					res++;
-				}
+	int n;
+	cin >> n;
+	int a[2][n];
+	for(int i = 0; i < 2; i++){
+		for(int j = 0; j < n; j++){
+			cin >> a[i][j];
+		}
+	}
+ 
+	for(int i = 0; i < 2; i++){
+		for(int j = 0; j < n; j++){
+			memo[i][j] = 0;
+		}
+	}
+ 
+	memo[0][0] = a[0][0]; 
+	for(int i = 0; i < 2; i++){
+		for(int j = 0; j < n; j++){
+			if(i == 0){
+				memo[i][j+1] = a[i][j+1] + memo[i][j];
+				memo[i+1][j] = a[i+1][j] + memo[i][j];
+			}else{
+				memo[i][j+1] = max(memo[i][j+1], memo[i][j]+a[i][j+1]);
 			}
 		}
 	}
-	cout << res << endl;
+	cout << memo[1][n-1] << endl;
 }
 
 int main(){
