@@ -22,9 +22,10 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-	char s;
-	cin >> s;
-	cout << s-'A'+1 << endl;
+	int a, b;
+	cin >> a >> b;
+	int t1 = min(a, b), t2 = max(a, b);
+	cout << min(abs(b-a), abs((10+t1)-t2)) << endl;
 }
 
 int main(){
