@@ -22,13 +22,9 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-	ll n, x, res = 0;
-	cin >> n >> x;
-	int a[n];
-	REP(i, n) cin >> a[i];
-	bitset<20> bs(x);
-	REP(i, 20) if(bs[i] == 1) res += a[i];
-	cout << res << endl;
+	char s;
+	cin >> s;
+	cout << s-'A'+1 << endl;
 }
 
 int main(){
