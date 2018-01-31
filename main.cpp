@@ -24,15 +24,8 @@ int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 void solve() {
 	int n;
 	cin >> n;
-	int t = 2025-n;
-
-	for(int i = 1; i < 10; i++){
-		for(int j = 1; j < 10; j++){
-			if(i*j == t){
-				cout << i << " x " << j << endl;
-			}
-		}
-	}
+	if(n < 12) cout << n+1 << endl;
+	else cout << 1 << endl;
 }
 
 int main(){
