@@ -24,8 +24,7 @@ int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 void solve() {
 	int a, b;
 	cin >> a >> b;
-	int t1 = min(a, b), t2 = max(a, b);
-	cout << min(abs(b-a), abs((10+t1)-t2)) << endl;
+	cout << b << " " << a << endl;
 }
 
 int main(){
