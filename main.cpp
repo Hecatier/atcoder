@@ -24,10 +24,15 @@ int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 void solve() {
 	int n;
 	cin >> n;
-	int hour = n/(60*60);
-	int minute = (n/60)%60;
-	int second = n%60;
-	printf("%02d:%02d:%02d\n", hour, minute, second);
+	int t = 2025-n;
+
+	for(int i = 1; i < 10; i++){
+		for(int j = 1; j < 10; j++){
+			if(i*j == t){
+				cout << i << " x " << j << endl;
+			}
+		}
+	}
 }
 
 int main(){
