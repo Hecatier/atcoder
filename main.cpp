@@ -22,9 +22,12 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-	int a, b;
-	cin >> a >> b;
-	cout << b << " " << a << endl;
+	int n;
+	cin >> n;
+	int hour = n/(60*60);
+	int minute = (n/60)%60;
+	int second = n%60;
+	printf("%02d:%02d:%02d\n", hour, minute, second);
 }
 
 int main(){
