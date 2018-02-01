@@ -21,11 +21,21 @@ using ll = long long;
 int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
+char Toupper(char s){ return (char)toupper(s); }
+
+char Tolower(char s){ return (char)tolower(s); }
+
 void solve() {
-	int n;
-	cin >> n;
-	if(n < 12) cout << n+1 << endl;
-	else cout << 1 << endl;
+	string s;
+	cin >> s;
+	for(int i = 0; i < s.length(); i++){
+		if(i == 0){
+			cout << Toupper(s[i]);
+		}else{
+			cout << Tolower(s[i]);
+		}
+	}
+	cout << endl;
 }
 
 int main(){
