@@ -21,21 +21,34 @@ using ll = long long;
 int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
-char Toupper(char s){ return (char)toupper(s); }
-
-char Tolower(char s){ return (char)tolower(s); }
-
 void solve() {
-	string s;
-	cin >> s;
-	for(int i = 0; i < s.length(); i++){
-		if(i == 0){
-			cout << Toupper(s[i]);
-		}else{
-			cout << Tolower(s[i]);
+	int n;
+	int ng[3];
+	cin >> n;
+	REP(i, 3) cin >> ng[i];
+
+	if(n == ng[0] || n == ng[1] || n == ng[2]){
+		cout << "NO" << endl;
+		return;
+	}
+	REP(i, 100){
+		REP(j, 4){
+			int t = 3-j;
+			if(t == 0){
+				cout << "NO" << endl;
+				return;
+			}
+			if(n-t >= 0 && n-t != ng[0] && n-t != ng[1] && n-t != ng[2]){
+				n -= t;
+				break;
+			}
+		}
+		if(n == 0){
+			cout << "YES" << endl;
+			return;
 		}
 	}
-	cout << endl;
+	cout << "NO" << endl;
 }
 
 int main(){
