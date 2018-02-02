@@ -22,33 +22,9 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-	int n;
-	int ng[3];
-	cin >> n;
-	REP(i, 3) cin >> ng[i];
-
-	if(n == ng[0] || n == ng[1] || n == ng[2]){
-		cout << "NO" << endl;
-		return;
-	}
-	REP(i, 100){
-		REP(j, 4){
-			int t = 3-j;
-			if(t == 0){
-				cout << "NO" << endl;
-				return;
-			}
-			if(n-t >= 0 && n-t != ng[0] && n-t != ng[1] && n-t != ng[2]){
-				n -= t;
-				break;
-			}
-		}
-		if(n == 0){
-			cout << "YES" << endl;
-			return;
-		}
-	}
-	cout << "NO" << endl;
+	string s;
+	cin >> s;
+	cout << s << "pp" << endl;	
 }
 
 int main(){
