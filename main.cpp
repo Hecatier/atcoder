@@ -22,18 +22,9 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-	int n, a[20], res=0;
-	bool x[] = {true, false, true, true, false, true, true, false, true, true};
-	bool y[] = {true, false, true, false, true, false, true, false, true, false};
+	double n;
 	cin >> n;
-	REP(i, n){
-		cin >> a[i];
-		while(!x[a[i]-1] || !y[a[i]-1]){
-			a[i]--;
-			res++;
-		}
-	}
-	cout << res << endl;
+	cout << ceil(n/2) << endl;
 }
 
 int main(){
