@@ -22,9 +22,19 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-	double n;
+	int n, c=0;
 	cin >> n;
-	cout << ceil(n/2) << endl;
+	string s[n], res="";
+	map<string, int> m;
+	REP(i, n) cin >> s[i], m.insert(make_pair(s[i], 0));
+	REP(i, n) m.at(s[i])++;
+	FOREACH(i, m){
+		if(i->second > c){
+			c = i->second;
+			res = i->first;
+		}
+	} 
+	cout << res << endl;
 }
 
 int main(){
