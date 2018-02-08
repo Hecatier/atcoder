@@ -23,13 +23,13 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n;
+    ll n, a[1000005];
     cin >> n;
-    if(n%3 == 0){
-        PRINT("YES");
-    }else{
-        PRINT("NO");
+    a[1]=0, a[2]=0, a[3]=1;
+    for(int i = 4; i <= n; i++){
+        a[i] = (a[i-3] + a[i-2] + a[i-1])%10007;
     }
+    PRINT(a[n]);
 }
 
 int main(){
