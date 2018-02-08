@@ -23,13 +23,9 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    ll n, a[1000005];
-    cin >> n;
-    a[1]=0, a[2]=0, a[3]=1;
-    for(int i = 4; i <= n; i++){
-        a[i] = (a[i-3] + a[i-2] + a[i-1])%10007;
-    }
-    PRINT(a[n]);
+    int x, y;
+    cin >> x >> y;
+    cout << y/x << endl;
 }
 
 int main(){
