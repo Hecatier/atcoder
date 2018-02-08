@@ -23,27 +23,14 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    string s, t;
-    cin >> s >> t;
-
-    REP(i, s.length()){
-        if(s[i] == t[i]){
-        }else if(s[i] != t[i] && s[i] != '@' && t[i] != '@'){
-            PRINT("You will lose");
-            return;
-        }else if(s[i] == '@'){
-            if(!(t[i] == 'a' || t[i] == 't' || t[i] == 'c' || t[i] == 'o' || t[i] == 'd' || t[i] == 'e' || t[i] == 'r')){
-                PRINT("You will lose");
-                return;
-            }
-        }else if(t[i] == '@'){
-            if(!(s[i] == 'a' || s[i] == 't' || s[i] == 'c' || s[i] == 'o' || s[i] == 'd' || s[i] == 'e' || s[i] == 'r')){
-                PRINT("You will lose");
-                return;
-            }
-        }
+    string w;
+    cin >> w;
+    REP(i, w.length()){
+        if(w[i] != 'a' && w[i] != 'i' && w[i] != 'u' && w[i] != 'e' && w[i] != 'o'){
+            cout << w[i];
+        }   
     }
-    PRINT("You can win");
+    cout << endl;
 }
 
 int main(){
