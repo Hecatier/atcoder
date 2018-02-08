@@ -23,14 +23,9 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    string w;
-    cin >> w;
-    REP(i, w.length()){
-        if(w[i] != 'a' && w[i] != 'i' && w[i] != 'u' && w[i] != 'e' && w[i] != 'o'){
-            cout << w[i];
-        }   
-    }
-    cout << endl;
+    int x, y;
+    cin >> x >> y;
+    PRINT(max(x, y));
 }
 
 int main(){
