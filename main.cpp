@@ -23,19 +23,12 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    char c[4][4];
-    REP(i, 4){
-        REP(j, 4){
-            cin >> c[i][j];
-        }
+    int n, res=0;
+    cin >> n;
+    for(int i = 1; i <= n; i++){
+        res += i*10000;
     }
-
-    for(int i = 3; i >= 0; i--){
-        for(int j = 3; j >= 0; j--){
-            cout << c[i][j]<< " ";
-        }
-        cout << endl;
-    }
+    PRINT(res/n);
 }
 
 int main(){
