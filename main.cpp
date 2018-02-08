@@ -23,9 +23,13 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n;
-    cin >> n;
-    PRINT(n-1);
+    string a;
+    cin >> a;
+    if(a == "a"){
+        PRINT(-1);
+    }else{
+        PRINT("a");
+    }
 }
 
 int main(){
