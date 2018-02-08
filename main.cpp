@@ -23,12 +23,12 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    string a;
-    cin >> a;
-    if(a == "a"){
-        PRINT(-1);
+    int n;
+    cin >> n;
+    if(n%3 == 0){
+        PRINT("YES");
     }else{
-        PRINT("a");
+        PRINT("NO");
     }
 }
 
