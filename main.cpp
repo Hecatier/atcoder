@@ -23,12 +23,27 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int n, res=0;
-    cin >> n;
-    for(int i = 1; i <= n; i++){
-        res += i*10000;
+    string s, t;
+    cin >> s >> t;
+
+    REP(i, s.length()){
+        if(s[i] == t[i]){
+        }else if(s[i] != t[i] && s[i] != '@' && t[i] != '@'){
+            PRINT("You will lose");
+            return;
+        }else if(s[i] == '@'){
+            if(!(t[i] == 'a' || t[i] == 't' || t[i] == 'c' || t[i] == 'o' || t[i] == 'd' || t[i] == 'e' || t[i] == 'r')){
+                PRINT("You will lose");
+                return;
+            }
+        }else if(t[i] == '@'){
+            if(!(s[i] == 'a' || s[i] == 't' || s[i] == 'c' || s[i] == 'o' || s[i] == 'd' || s[i] == 'e' || s[i] == 'r')){
+                PRINT("You will lose");
+                return;
+            }
+        }
     }
-    PRINT(res/n);
+    PRINT("You can win");
 }
 
 int main(){
