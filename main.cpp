@@ -23,9 +23,12 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int x, y;
-    cin >> x >> y;
-    cout << y/x << endl;
+    int n;
+    cin >> n;
+    int t[n];
+    REP(i, n) cin >> t[i];
+    sort(t, t+n);
+    PRINT(t[0]);    
 }
 
 int main(){
