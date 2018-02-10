@@ -23,7 +23,15 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    
+    string s;
+    cin >> s;
+    if(s[0] == 'y' && s[1] == 'a' && s[2] == 'h'){
+        if(s[3] == s[4]){
+            PRINT("YES");
+            return;
+        }
+    }
+    PRINT("NO");   
 }
 
 int main(){
