@@ -23,9 +23,7 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    int x, y;
-    cin >> x >> y;
-    PRINT(max(x, y));
+    
 }
 
 int main(){
