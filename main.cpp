@@ -23,15 +23,13 @@ int X[] = {-1, 0, 1, 1, 1, 0, -1, -1};
 int Y[] = {1, 1, 1, 0, -1, -1, -1, 0};
 
 void solve() {
-    string s;
-    cin >> s;
-    if(s[0] == 'y' && s[1] == 'a' && s[2] == 'h'){
-        if(s[3] == s[4]){
-            PRINT("YES");
-            return;
-        }
+    ll x, k, res = 0;
+    cin >> x >> k;
+    ll y = pow(10, k);
+    while(res <= x){
+        res += y;
     }
-    PRINT("NO");   
+    cout << res << endl;
 }
 
 int main(){
