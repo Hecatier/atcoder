@@ -54,20 +54,25 @@ int bfs(int sx, int sy, int gx, int gy, int N, int M){
 }
 
 void solve(){
-    cin >> h >> w;
-    REP(i, h){
-        REP(j, w){
-            cin >> s[i][j];
-            if(s[i][j] == '#') c++;
+    int a[3], b[3], c[3][3];
+    REP(i, 3) REP(j, 3) cin >> c[i][j];
+
+    a[0] = min(c[0][0], min(c[0][1], c[0][2]));
+    b[0] = c[0][0] - a[0];
+    a[1] = c[1][0] - b[0];
+    a[2] = c[2][0] - b[0];
+    b[1] = c[0][1] - a[0];
+    b[2] = c[0][2] - a[0]; 
+
+    REP(i, 3){
+        REP(j, 3){
+            if(c[i][j] != a[i]+b[j]){
+                cout << "No" << endl;
+                return;
+            }
         }
     }
- 
-    int res = bfs(0, 0, h-1, w-1, h, w);
-    if(res != -1){
-        cout << (h*w)-c-(res+1) << endl;
-    }else{
-        cout << -1 << endl;
-    }
+    cout << "Yes" << endl;
 }
 
 int main(){
