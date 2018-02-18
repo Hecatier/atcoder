@@ -54,6 +54,20 @@ int bfs(int sx, int sy, int gx, int gy, int N, int M){
 }
 
 void solve(){
+    cin >> h >> w;
+    REP(i, h){
+        REP(j, w){
+            cin >> s[i][j];
+            if(s[i][j] == '#') c++;
+        }
+    }
+ 
+    int res = bfs(0, 0, h-1, w-1, h, w);
+    if(res != -1){
+        cout << (h*w)-c-(res+1) << endl;
+    }else{
+        cout << -1 << endl;
+    }
 }
 
 int main(){
