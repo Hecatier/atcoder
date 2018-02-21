@@ -29,29 +29,50 @@ int dy2[] = {0, -1, -1, -1, 0, 1, 1, 1};
 struct edge {int from, to, cost; };
 
 void solve(){
-    int V, E, r;
-    cin >> V >> E >> r;
-    edge es[E];
-    REP(i, E) cin >> es[i].from >> es[i].to >> es[i].cost;
-
-    int d[V];
-    REP(i, V) d[i] = INF;
-    d[r] = 0;
-    while(true){
-        bool update = false;
-        for(int i = 0; i < E; i++){
-            edge e = es[i];
-            if(d[e.from] != INF && d[e.to] > d[e.from] + e.cost){
-                d[e.to] = d[e.from] + e.cost;
-                update = true;
+    int v, e;
+    cin >> v >> e;
+    int s[e], t[e], d[e];
+    int res[v][v];
+    REP(i, e) cin >> s[i] >> t[i] >> d[i];
+    
+    REP(i, v){
+        REP(j, v){
+            if(i != j){
+                res[i][j] = INF;
+            }else{
+                res[i][j] = 0;
             }
         }
-        if(!update) break;
     }
 
-    for(int i = 0; i < V; i++){
-        if(d[i] != INF) cout << d[i] << endl;
-        else cout << "INF" << endl;
+    REP(i, e) res[s[i]][t[i]] = d[i];
+
+    REP(k, v){
+        REP(i, v){
+            REP(j, v){
+                res[i][j] = min(res[i][j], res[i][k] + res[k][j]);
+            }
+        }
+    }
+
+    for(int i = 0; i < v; i++){
+        if(res[i][i] < 0){
+            cout << "NEGATIVE CYCLE" << endl;
+            return; 
+        }
+    }
+    for(int i = 0; i < v; i++){
+        for(int j = 0; j < v; j++){
+            if(res[i][j] > pow(10, 7)*2){
+                cout << "INF";
+            }else{
+                cout << res[i][j];
+            }
+            if(j < v-1){
+                cout << " ";
+            }
+        }
+        cout << endl;
     }
 }
 

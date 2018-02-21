@@ -43,6 +43,23 @@ int bfs(int sx, int sy, int gx, int gy, int N, int M){
     return distance[gx][gy];
 }
 
+void shortest_path(){
+    int d[V];
+    REP(i, V) d[i] = INF;
+    d[r] = 0;
+    while(true){
+        bool update = false;
+        for(int i = 0; i < E; i++){
+            edge e = es[i];
+            if(d[e.from] != INF && d[e.to] > d[e.from] + e.cost){
+                d[e.to] = d[e.from] + e.cost;
+                update = true;
+            }
+        }
+        if(!update) break;
+    }
+}
+
 //union-find
 /*
 int par[MAX_N];
