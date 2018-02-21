@@ -18,6 +18,31 @@ int lcm(int a, int b) {
     return (a*b)/gcd(a, b);
 }
 
+int bfs(int sx, int sy, int gx, int gy, int N, int M){
+    int distance[N][M];
+    queue<P> que;
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < M; j++){
+            distance[i][j] = -1;
+        }
+    }
+    que.push(P(sx, sy));
+    distance[sx][sy] = 0;
+
+    while(que.size()){
+        P p = que.front(); que.pop();
+        if(p.first == gx && p.second == gy) break;  //ゴールなら探索終了
+        for(int i = 0; i < 4; i++){
+            int nx = p.first + dx[i], ny = p.second + dy[i];    //nx, nyは移動後の点
+            if(0 <= nx && nx < N && 0 <= ny && ny < M && s[nx][ny] != '#' && distance[nx][ny] == -1){
+                que.push(P(nx, ny));
+                distance[nx][ny] = distance[p.first][p.second] + 1;
+            }
+        }
+    }
+    return distance[gx][gy];
+}
+
 //union-find
 /*
 int par[MAX_N];
