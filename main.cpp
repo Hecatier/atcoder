@@ -1,4 +1,4 @@
-#include <iostream>
+#include <cstdio>
 #include <algorithm>
 #include <map>
 #include <string>
@@ -13,9 +13,8 @@
 #include <stack>
 
 #define mod 1000000007
-#define INF 1000000000
-#define REP(i,n) for(int (i)=0; (i)<(n); (i)++)
-#define FOREACH(i, v) for(auto i = v.begin(); i != v.end(); i++)
+#define INF 9999999999
+#define rep(i,n) for(int (i)=0; (i)<(n); (i)++)
 #define P pair<int, int>
 
 using namespace std;
@@ -28,51 +27,54 @@ int dy2[] = {0, -1, -1, -1, 0, 1, 1, 1};
 
 struct edge {int from, to, cost; };
 
-void solve(){
-    int v, e;
-    cin >> v >> e;
-    int s[e], t[e], d[e];
-    int res[v][v];
-    REP(i, e) cin >> s[i] >> t[i] >> d[i];
-    
-    REP(i, v){
-        REP(j, v){
+int v, e;
+ll s[10000], t[10000], c[10000];
+ll d[105][105];
+
+void warshall_floyd_init(){
+    rep(i, v){
+        rep(j, v){
             if(i != j){
-                res[i][j] = INF;
+                d[i][j] = INF;
             }else{
-                res[i][j] = 0;
+                d[i][j] = 0;
             }
-        }
+        } 
     }
+}
 
-    REP(i, e) res[s[i]][t[i]] = d[i];
+void warshall_floyd(){
+    rep(k, v)
+        rep(i, v)
+            rep(j, v)
+                if(d[i][k] != INF && d[k][j] != INF)
+                    d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+}
 
-    REP(k, v){
-        REP(i, v){
-            REP(j, v){
-                res[i][j] = min(res[i][j], res[i][k] + res[k][j]);
-            }
-        }
+bool isNegativeCycle(){
+    rep(i, v){
+        if(d[i][i] < 0) return true;
     }
+    return false;
+}
 
-    for(int i = 0; i < v; i++){
-        if(res[i][i] < 0){
-            cout << "NEGATIVE CYCLE" << endl;
-            return; 
-        }
+void solve(){
+    scanf("%d%d", &v, &e);
+    warshall_floyd_init();
+    rep(i, e) scanf("%lld%lld%lld", &s[i], &t[i], &c[i]);
+    rep(i, e) d[s[i]][t[i]] = c[i];
+    warshall_floyd();
+    if(isNegativeCycle()){
+        printf("NEGATIVE CYCLE\n");
+        return;
     }
-    for(int i = 0; i < v; i++){
-        for(int j = 0; j < v; j++){
-            if(res[i][j] > pow(10, 7)*2){
-                cout << "INF";
-            }else{
-                cout << res[i][j];
-            }
-            if(j < v-1){
-                cout << " ";
-            }
+    rep(i, v){
+        rep(j, v){
+            if(d[i][j] == INF) printf("INF");
+            else printf("%lld", d[i][j]);
+            if(j != v-1) printf(" ");
         }
-        cout << endl;
+        printf("\n");
     }
 }
 

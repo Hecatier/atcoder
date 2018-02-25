@@ -81,6 +81,34 @@ int digitSum2(long long x){
         return res-1;
     }
 }
+//ワーシャルフロイド法初期化
+void warshall_floyd_init(){
+    rep(i, v){
+        rep(j, v){
+            if(i != j){
+                d[i][j] = INF;
+            }else{
+                d[i][j] = 0;
+            }
+        } 
+    }
+}
+//ワーシャルフロイド法
+void warshall_floyd(){
+    rep(k, v)
+        rep(i, v)
+            rep(j, v)
+                if(d[i][k] != INF && d[k][j] != INF)
+                    d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+}
+//ワーシャルフロイド法の負の閉路検出
+bool isNegativeCycle(){
+    rep(i, v){
+        if(d[i][i] < 0) return true;
+    }
+    return false;
+}
+
 
 //union-find
 /*
