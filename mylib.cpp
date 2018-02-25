@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//x,yの最大公約数
 int gcd(int a, int b) {
     int x = max(a, b);
     int y = min(a, b);
@@ -13,11 +14,11 @@ int gcd(int a, int b) {
         return gcd(y, z);
     }
 }
-
+//x,yの最小公倍数
 int lcm(int a, int b) {
     return (a*b)/gcd(a, b);
 }
-
+//幅優先探索で最短経路の距離を返す
 int bfs(int sx, int sy, int gx, int gy, int N, int M){
     int distance[N][M];
     queue<P> que;
@@ -42,7 +43,7 @@ int bfs(int sx, int sy, int gx, int gy, int N, int M){
     }
     return distance[gx][gy];
 }
-
+//単一始点最短経路
 void shortest_path(){
     int d[V];
     REP(i, V) d[i] = INF;
@@ -57,6 +58,27 @@ void shortest_path(){
             }
         }
         if(!update) break;
+    }
+}
+//入力nの各桁の合計を返す
+int digitSum(long long x){
+    int res = 0;
+    string s = to_string(x);
+    for(int i = 0; i < s.length(); i++){
+        res += s[i]-'0';
+    }
+    return res;
+}
+//入力n以下の各桁の和の最大値
+int digitSum2(long long x){
+    string s = to_string(x);
+    int res = (s[0]-'0')+9*(s.length()-1);
+    if(x < 10){
+        return x;
+    }else if((x+1)%10 == 0){
+        return res;
+    }else{
+        return res-1;
     }
 }
 
