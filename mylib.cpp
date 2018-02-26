@@ -175,3 +175,15 @@ Graph input_graph(){
     }
     return g;
 }
+//ユークリッド距離
+double Euclid_distance(double x1, double y1, double x2, double y2){
+    return sqrt(pow(x1-x2,2)+pow(y1-y2, 2));
+}
+//三角形の面積を2辺とその間の角から求める(弧度法)
+double triangle_area(double a, double b, double c){
+    return 0.5 * a * b * sin(M_PI/(180.0/c));
+}
+//余弦定理 c^2 = a^2 + b^2 -2ab*cosA でc^2を返す
+double low_of_cosines(double a, double b, double c){
+    return pow(a, 2)+pow(b, 2)-2*a*b*cos(M_PI/(180.0/c));
+}
