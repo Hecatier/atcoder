@@ -44,13 +44,13 @@ int bfs(int sx, int sy, int gx, int gy, int N, int M){
     return distance[gx][gy];
 }
 //単一始点最短経路
-void shortest_path(){
-    int d[V];
-    REP(i, V) d[i] = INF;
+void shortest_path(int r){
+    int d[v];
+    rep(i, v) d[i] = INF;
     d[r] = 0;
     while(true){
         bool update = false;
-        for(int i = 0; i < E; i++){
+        for(int i = 0; i < e; i++){
             edge e = es[i];
             if(d[e.from] != INF && d[e.to] > d[e.from] + e.cost){
                 d[e.to] = d[e.from] + e.cost;
@@ -81,7 +81,7 @@ int digitSum2(long long x){
         return res-1;
     }
 }
-//ワーシャルフロイド法初期化
+//ワーシャルフロイド法 初期化
 void warshall_floyd_init(){
     rep(i, v){
         rep(j, v){
@@ -101,7 +101,7 @@ void warshall_floyd(){
                 if(d[i][k] != INF && d[k][j] != INF)
                     d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
 }
-//ワーシャルフロイド法の負の閉路検出
+//ワーシャルフロイド法 負の閉路検出
 bool isNegativeCycle(){
     rep(i, v){
         if(d[i][i] < 0) return true;
