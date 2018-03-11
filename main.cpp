@@ -1,5 +1,5 @@
-#include <cstdio>
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include <map>
 #include <string>
@@ -24,15 +24,10 @@ using ll = long long;
 
 int dx[] = {1, 0, -1, 0};
 int dy[] = {0, 1, 0, -1};
-int dx2[] = {1, 1, 0, -1, -1, -1, 0, 1};
-int dy2[] = {0, -1, -1, -1, 0, 1, 1, 1};
+int DX[] = {1, 1, 0, -1, -1, -1, 0, 1};
+int DY[] = {0, -1, -1, -1, 0, 1, 1, 1};
 
 struct edge {int from, to, cost; };
-
-int h, w, d, a;
-int px[90001], py[90001];
-int q, l, r;
-int res[90001];
 
 void solve(){
 }

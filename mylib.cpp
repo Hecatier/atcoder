@@ -1,5 +1,8 @@
 #include "mylib.h"
 #include <algorithm>
+#include <queue>
+
+#define P pair<int, int>
 
 using namespace std;
 
@@ -42,6 +45,18 @@ int bfs(int sx, int sy, int gx, int gy, int N, int M){
         }
     }
     return distance[gx][gy];
+}
+
+//union-find
+/*
+int par[MAX_N];
+int rank[MAX_N];
+
+void init(int n){
+	for(int i = 0; i < n; i++){
+		par[i] = i;
+		rank[i] = 0;
+	}
 }
 //単一始点最短経路
 void shortest_path(int r){
